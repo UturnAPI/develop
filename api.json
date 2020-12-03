@@ -4,14 +4,14 @@
     "version": "1.0.1",
     "title": "Uturn API documentation",
     "termsOfService": "UTURN License",
-    "description" : **Change history**
+    "description" : "**Change history**
             1.  **V1.0.0** :- Initial version
             2.  **V1.0.1** :-  
                 **Changes**
                 1.  Added support for get quotations on a shipment.
                 2.  Added support for assigning a shipment to carrier based on quote amount.
-                3.  Changed the data-type of carrier rating in **GET carrier details of a shipment** from string to number.
-    ,"contact": {
+                3.  Changed the data-type of carrier rating in **GET carrier details of a shipment** from string to number.",
+    "contact": {
       "name": "UTURN",
       "url": "https://www.uturn-now.com",
       "email": "admin@uturn-now.com"
