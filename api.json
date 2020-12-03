@@ -5,7 +5,7 @@
     "title": "Uturn API documentation",
     "termsOfService": "UTURN License",
     "description" : "<div>
-	<strong style="color :#0033a0; font-size: 1.85714em;">Change history</strong>
+	<strong style="color: #00beeb; text-decoration: underline;">Change history</strong>
 	<br><br>
 	<ol>
 		<li><strong>V1.0.0</strong> :- Initial version</li>
