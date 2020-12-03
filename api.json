@@ -1,10 +1,17 @@
 {
   "swagger": "2.0",
   "info": {
-    "version": "1.0.0",
+    "version": "1.0.1",
     "title": "Uturn API documentation",
     "termsOfService": "UTURN License",
-    "contact": {
+    "description" : **Change history**
+            1.  **V1.0.0** :- Initial version
+            2.  **V1.0.1** :-  
+                **Changes**
+                1.  Added support for get quotations on a shipment.
+                2.  Added support for assigning a shipment to carrier based on quote amount.
+                3.  Changed the data-type of carrier rating in **GET carrier details of a shipment** from string to number.
+    ,"contact": {
       "name": "UTURN",
       "url": "https://www.uturn-now.com",
       "email": "admin@uturn-now.com"
@@ -23,6 +30,57 @@
     }
   ],
   "paths": {
+    "/shippers/assignCarrier": {
+      "post": {
+        "tags": [
+          "Shippers"
+        ],
+        "summary": "Assign a carrier to the shipment.",
+        "operationId": "assignShipmentToCarrierUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "api_key",
+            "in": "header",
+            "description": "api_key",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "requestedBy",
+            "in": "header",
+            "description": "requestedBy",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "assignCarrierRequest",
+            "description": "assignCarrierRequest",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/AssignCarrierRequest"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok"
+          },
+          "403": {
+            "description": "Forbidden Request."
+          },
+          "404": {
+            "description": "User not found."
+          }
+        }
+      }
+    },
     "/shippers/cancel/{shipmentNr}": {
       "post": {
         "tags": [
@@ -506,6 +564,19 @@
     }
   },
   "definitions": {
+    "AssignCarrierRequest": {
+      "type": "object",
+      "properties": {
+        "quoteId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "shipmentNr": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
     "CancellationTypeDTO": {
       "type": "object",
       "properties": {
@@ -606,11 +677,11 @@
           "example": "UTURN CARRIER B.V.",
           "description": "Organisation name of the carrier"
         },
-        "organisationNumber": {
+        "quotedId": {
           "type": "integer",
           "format": "int32",
-          "example": 10003826,
-          "description": "Organisation number of the carrier"
+          "example": 3826,
+          "description": "ID of the quoted price. This ID is used to assign a carrier to a shipment."
         },
         "quotedPrice": {
           "type": "number",
