@@ -5,7 +5,7 @@
     "title": "Uturn API documentation",
     "termsOfService": "UTURN License",
     "description" : "<div>
-	<strong>Change history</strong>
+	<strong class = 'uturn-strong'>Release history</strong>
 	<br><br>
 	<ol>
 		<li><strong>V1.0.0</strong> :- Initial version</li>
