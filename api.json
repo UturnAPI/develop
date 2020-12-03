@@ -5,18 +5,16 @@
     "title": "Uturn API documentation",
     "termsOfService": "UTURN License",
     "description" : "<div>
-	<strong>Change history</strong>
+	<strong style="color :#0033a0; font-size: 1.85714em;">Change history</strong>
 	<br><br>
 	<ol>
 		<li><strong>V1.0.0</strong> :- Initial version</li>
 		<li><strong>V1.0.1</strong> :- 
-			<br><br>
-			<strong>Changes</strong>
-			<ol>
-				<li>Added support for get quotations on a shipment.</li>
+			<ul>
+				<li>Added support for <a href="#operation/assignShipmentToCarrierUsingPOST">get quotations</a> on a shipment.</li>
 				<li>Added support for assigning a shipment to carrier based on quote amount.</li>
 				<li>Changed the data-type of carrier rating in <strong>GET carrier details of a shipment</strong> from string to number.</li>
-			</ol>
+			</ul>
 		</li>
 	</ol>
 </div>",
