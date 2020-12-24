@@ -25,8 +25,8 @@
             <li><strong class = 'uturn-strong'>V1.0.3</strong> :- </li>
             <ul class = 'uturn-ul-style'>
                 <li>Updated <strong class = 'uturn-strong'>POST Create a shipment</strong> and <strong class = 'uturn-strong'>POST Update a shipment</strong> API calls. 
-                <li><strong class = 'uturn-strong'>productCategory</strong> field is removed and replaced by cargoDescription string field</li>
-                <li><strong class = 'uturn-strong'>requirements</strong> field is removed and replaced by requirementCodes string[] field. Multiple requirements can now be added.</li>
+                <li><strong>productCategory</strong> field is removed and replaced by cargoDescription string field</li>
+                <li><strong>requirements</strong> field is removed and replaced by requirementCodes string[] field. Multiple requirements can now be added.</li>
             </ul>            
         </ol>
       </div>",
