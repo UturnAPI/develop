@@ -3,6 +3,12 @@
   "info": {
     "version": "1.0.3",
     "title": "Uturn API documentation",
+    "x-logo": {
+      "url": "https://portal.uturn-system.com/assets/images/logo_uturn.png",
+      "backgroundColor": "#FFFFFF",
+      "altText": "Uturn logo",
+      **"href": "https://uturn-now.com"**
+    },
     "termsOfService": "UTURN License",
     "description" : "<div>
         <strong class = 'uturn-strong'>Release history</strong>
