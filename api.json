@@ -1333,12 +1333,12 @@
         "vat": {
           "type": "boolean",
           "example": false,
-          "description": "If TRUE, normal VAT rules will apply. If FALSE, 0% VAT will apply on this shipment."
+          "description": "If TRUE, normal VAT rules will apply. If FALSE, 0% VAT will apply on this shipment.By default FALSE."
         },
         "acceptancePrice": {
           "type": "boolean",
-          "example": true,
-          "description": "If TRUE carriers can accept the shipment for the price. If FALSE, it is bid only."
+          "example": false,
+          "description": "If TRUE carriers can accept the shipment for the price. If FALSE, it is bid only.By default FALSE."
         },
         "carriers": {
           "type": "array",
