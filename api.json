@@ -391,7 +391,7 @@
         "tags": [
           "Shippers"
         ],
-        "summary": "Fetch POD's for a shipment in Base64 string format.",
+        "summary": "Get POD of a shipment (base64)",
         "operationId": "fetchShipmentPODsUsingGET",
         "consumes": [
           "application/json"
