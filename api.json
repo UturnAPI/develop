@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "version": "1.0.3",
+    "version": "1.0.4",
     "title": "Uturn API documentation",
     "x-logo": {
       "url": "https://portal.uturn-system.com/assets/images/logo_uturn.png",
@@ -33,7 +33,11 @@
                 <li>Updated <strong class = 'uturn-strong'>POST Create a shipment</strong> and <strong class = 'uturn-strong'>POST Update a shipment</strong> API calls. 
                 <li><strong>productCategory</strong> field is removed and replaced by <strong>cargoDescription</strong> string field</li>
                 <li><strong>requirements</strong> field is removed and replaced by <strong>requirementCodes</strong> string[] field. Multiple requirements can now be added.</li>
-            </ul>            
+            </ul>
+            <li><strong class = 'uturn-strong'>V1.0.4</strong> :- </li>
+            <ul class = 'uturn-ul-style'>
+                <li>Added support for fetching Proof of delivery (PROD) documens uploaded by carrier via API calls.</li>                
+            </ul>
         </ol>
       </div>",
     "contact": {
@@ -382,6 +386,65 @@
         }
       }
     },
+    "/shippers/pod/{shipmentNr}": {
+      "get": {
+        "tags": [
+          "Shippers"
+        ],
+        "summary": "Fetch POD's for a shipment in Base64 string format.",
+        "operationId": "fetchShipmentPODsUsingGET",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "api_key",
+            "in": "header",
+            "description": "api_key",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "requestedBy",
+            "in": "header",
+            "description": "requestedBy",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "shipmentNr",
+            "in": "path",
+            "description": "shipmentNr",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/GenericDocument"
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request."
+          },
+          "403": {
+            "description": "Forbidden Request."
+          },
+          "404": {
+            "description": "User not found."
+          }
+        }
+      }
+    },
     "/shippers/quotes/{shipmentNr}": {
       "get": {
         "tags": [
@@ -647,13 +710,11 @@
           }
         },
         "cargoCardNumber": {
-          "type": "integer",
-          "format": "int64",
+          "type": "string",
           "description": "CargoCard number of the carrier."
         },
         "eanNumber": {
-          "type": "integer",
-          "format": "int64",
+          "type": "string",
           "description": "EAN number of the carrier."
         },
         "email": {
@@ -1011,6 +1072,27 @@
           "items": {
             "$ref": "#/definitions/TSOStatus"
           }
+        }
+      }
+    },
+    "GenericDocument": {
+      "type": "object",
+      "properties": {
+        "fullFileName": {
+          "type": "string",
+          "description": "Full name of the document with extension."
+        },
+        "fileName": {
+          "type": "string",
+          "description": "File name of the document"
+        },
+        "fileExtension": {
+          "type": "string",
+          "description": "File extension of the document."
+        },
+        "fileInBase64format": {
+          "type": "string",
+          "description": "File in Base64 encoded format."
         }
       }
     },
