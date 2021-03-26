@@ -65,6 +65,7 @@
           "Shippers"
         ],
         "summary": "Assign a carrier to the shipment.",
+        "description": "Allowed Roles : Admin,User",
         "operationId": "assignShipmentToCarrierUsingPOST",
         "consumes": [
           "application/json"
@@ -116,6 +117,7 @@
           "Shippers"
         ],
         "summary": "Cancel a shipment in Uturn platform.",
+        "description": "Allowed Roles : Admin,User",
         "operationId": "cancelShipmentUsingPOST",
         "consumes": [
           "application/json"
@@ -175,6 +177,7 @@
           "Shippers"
         ],
         "summary": "Get all carrier details for a shipment.",
+        "description": "Allowed Roles : Admin,User",
         "operationId": "getCarrierContractUsingGET",
         "consumes": [
           "application/json"
@@ -228,6 +231,7 @@
           "Shippers"
         ],
         "summary": "Create a shipment.",
+        "description": "Allowed Roles : Admin,User",
         "operationId": "createShipmentUsingPOST",
         "consumes": [
           "application/json"
@@ -286,6 +290,7 @@
           "Shippers"
         ],
         "summary": "Get execution details of a shipment.",
+        "description": "Allowed Roles : Admin,User",
         "operationId": "getExecutionDetailsUsingGET",
         "consumes": [
           "application/json"
@@ -339,6 +344,7 @@
           "Shippers"
         ],
         "summary": "Get cost lines for a shipment.",
+        "description": "Allowed Roles : Admin,User",
         "operationId": "getCostLinesUsingGET",
         "consumes": [
           "application/json"
@@ -392,6 +398,7 @@
           "Shippers"
         ],
         "summary": "Get POD of a shipment (base64)",
+        "description": "Allowed Roles : Admin,User",
         "operationId": "fetchShipmentPODsUsingGET",
         "consumes": [
           "application/json"
@@ -451,6 +458,7 @@
           "Shippers"
         ],
         "summary": "Get quotes for a shipment.",
+        "description": "Allowed Roles : Admin,User",
         "operationId": "getQuotesOnShipmentUsingGET",
         "consumes": [
           "application/json"
@@ -507,6 +515,7 @@
           "Shippers"
         ],
         "summary": "Get all metadata for a shipment.",
+        "description": "Allowed Roles : Admin,User",
         "operationId": "getShipmentMetaDataUsingGET",
         "consumes": [
           "application/json"
@@ -552,6 +561,7 @@
           "Shippers"
         ],
         "summary": "Update a shipment.",
+        "description": "Allowed Roles : Admin,User",
         "operationId": "updateShipmentUsingPOST",
         "consumes": [
           "application/json"
@@ -609,6 +619,7 @@
           "Shippers"
         ],
         "summary": "Withdraw a shipment from Uturn platform.Sets the status back to CONCEPT",
+        "description": "Allowed Roles : Admin,User",
         "operationId": "withdrawShipmentUsingPOST",
         "consumes": [
           "application/json"
