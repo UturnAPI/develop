@@ -669,7 +669,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Ok",
+            "description": "Files uploaded successfully.",
             "schema": {
               "type": "string"
             }
@@ -1161,7 +1161,7 @@
           "type": "array",
           "description": "Document types.",
           "items": {
-            "type": "string"
+            "$ref": "#/definitions/GenericDocumentFileType"
           }
         }
       }
@@ -1190,6 +1190,21 @@
         }
       }
     },
+    "GenericDocumentFileType": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "example": "BOL,SHIPMENT_GENERAL",
+          "description": "Code of the file type. To be used in upload document call."
+        },
+        "description": {
+          "type": "string",
+          "example": "Bill of Lading,Other",
+          "description": "Description of the file type."
+        }
+      }
+    },
     "GenericDocumentUpload": {
       "type": "object",
       "required": [
@@ -1200,27 +1215,35 @@
       "properties": {
         "fileName": {
           "type": "string",
-          "example": "70000000_POD_1.pdf",
-          "description": "Full name of the document with extension."
+          "example": "test_file.pdf",
+          "description": "Full name of the document with extension.",
+          "enum": [
+            "pdf",
+            "doc",
+            "docx",
+            "jpeg",
+            "jpg",
+            "png",
+            "tif",
+            "tiff",
+            "bmp",
+            "xls",
+            "xlsx",
+            "csv"
+          ]
         },
         "fileType": {
           "type": "string",
-          "description": "Unique not changing code of the file type.Values can be retrieved from meta-data call.",
-          "enum": [
-            "Customs Clearance",
-            "T1 Document",
-            "Bill of Lading",
-            "DGD",
-            "Other"
-          ]
+          "description": "Code of the file type. Values can be retrieved from meta-data call."
         },
         "fileInBase64format": {
           "type": "string",
-          "description": "File in Base64 encoded format.Max up-loadable size 5MB."
+          "description": "File in Base64 encoded format. Max up-loadable size 5MB."
         },
         "fileDescription": {
           "type": "string",
-          "description": "Description of file.Max 30 characters"
+          "example": "Document for clearance",
+          "description": "Description of file. Max 30 characters"
         }
       }
     },
