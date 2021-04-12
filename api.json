@@ -40,7 +40,7 @@
             </ul>
             <li><strong class = 'uturn-strong'>V1.0.5</strong> :- </li>
             <ul class = 'uturn-ul-style'>
-                <li>Added support for uploading <strong class = 'uturn-strong'><a href = '#operation/fetchShipmentPODsUsingGET'>documents related to shipment</a></strong> via API calls.</li>                
+                <li>Added support for uploading <strong class = 'uturn-strong'><a href = '#operation/uploadDocumentsToShipmentUsingPOST'>documents related to shipment</a></strong> via API calls.</li>                
             </ul>
         </ol>
       </div>",
