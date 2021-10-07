@@ -1114,7 +1114,7 @@
         "driverToAssign": {
           "type": "string",
           "example": "driver@example.com",
-          "description": "The user name of the preferred driver for this shipment."
+          "description": "Email of driver if you want to assign the shipment directly to."
         },
         "equipmentId": {
           "type": "string",
