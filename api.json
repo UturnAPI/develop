@@ -53,7 +53,7 @@
             <li><strong class = 'uturn-strong'>V1.1.0</strong> :- </li>
             <ul class = 'uturn-ul-style'>
                 <li>Added carrier endpoints.</li>
-            </ul>            
+            </ul>
         </ol>
       </div>
       <br/>
@@ -103,6 +103,270 @@
     }
   ],
   "paths": {
+    "/carriers/add-document/{shipmentNumber}": {
+      "post": {
+        "tags": [
+          "Carriers"
+        ],
+        "summary": "Add document",
+        "description": "Add document to a shipment",
+        "operationId": "addDocumentToShipmentUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "api_key",
+            "in": "header",
+            "description": "api_key",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "document",
+            "description": "document",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GenericDocumentUpload"
+            }
+          },
+          {
+            "name": "requestedBy",
+            "in": "header",
+            "description": "requestedBy",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "shipmentNumber",
+            "in": "path",
+            "description": "shipmentNumber",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "400": {
+            "description": "Bad Request."
+          },
+          "403": {
+            "description": "Forbidden Request."
+          },
+          "404": {
+            "description": "User not found."
+          }
+        }
+      }
+    },
+    "/carriers/update-execution-details/{shipmentNumber}": {
+      "post": {
+        "tags": [
+          "Carriers"
+        ],
+        "summary": "Update execution details",
+        "description": "Send execution events related to the shipment.",
+        "operationId": "sendLocationEventUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "api_key",
+            "in": "header",
+            "description": "api_key",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "locationEvent",
+            "description": "locationEvent",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/LocationEvent"
+            }
+          },
+          {
+            "name": "requestedBy",
+            "in": "header",
+            "description": "requestedBy",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "shipmentNumber",
+            "in": "path",
+            "description": "shipmentNumber",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "400": {
+            "description": "Bad Request."
+          },
+          "403": {
+            "description": "Forbidden Request."
+          },
+          "404": {
+            "description": "User not found."
+          }
+        }
+      }
+    },
+    "/carriers/update-order/{shipmentNumber}": {
+      "post": {
+        "tags": [
+          "Carriers"
+        ],
+        "summary": "Update order",
+        "description": "Update container related order details for a shipment.",
+        "operationId": "updateShipmentByCarrierUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "api_key",
+            "in": "header",
+            "description": "api_key",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "request",
+            "description": "request",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UpdateOrder"
+            }
+          },
+          {
+            "name": "requestedBy",
+            "in": "header",
+            "description": "requestedBy",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "shipmentNumber",
+            "in": "path",
+            "description": "shipmentNumber",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "400": {
+            "description": "Bad Request."
+          },
+          "403": {
+            "description": "Forbidden Request."
+          },
+          "404": {
+            "description": "User not found."
+          }
+        }
+      }
+    },
+    "/carriers/update-status/{shipmentNumber}": {
+      "post": {
+        "tags": [
+          "Carriers"
+        ],
+        "summary": "Update order status",
+        "description": "Start, stop, execute, or finish a shipment",
+        "operationId": "updateTransportStatusByCarrierUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "api_key",
+            "in": "header",
+            "description": "api_key",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "requestedBy",
+            "in": "header",
+            "description": "requestedBy",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "shipmentNumber",
+            "in": "path",
+            "description": "shipmentNumber",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "body",
+            "name": "transportUpdate",
+            "description": "transportUpdate",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/TransportUpdate"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "400": {
+            "description": "Bad Request."
+          },
+          "403": {
+            "description": "Forbidden Request."
+          },
+          "404": {
+            "description": "User not found."
+          }
+        }
+      }
+    },
     "/shippers/assignCarrier": {
       "post": {
         "tags": [
@@ -1311,6 +1575,37 @@
       },
       "title": "InvoiceLineStatusDTO"
     },
+    "LocationEvent": {
+      "type": "object",
+      "required": [
+        "sequenceNumber",
+        "type"
+      ],
+      "properties": {
+        "sequenceNumber": {
+          "type": "integer",
+          "format": "int32",
+          "example": 1,
+          "description": "Sequence number of the location action."
+        },
+        "time": {
+          "type": "string",
+          "example": "2021-08-11T13:34:58.80",
+          "description": "The format is in ISO 8601"
+        },
+        "type": {
+          "type": "string",
+          "example": "ARRIVAL",
+          "description": "Type of the event",
+          "enum": [
+            "ARRIVAL",
+            "DEPARTURE",
+            "ETA"
+          ]
+        }
+      },
+      "title": "LocationEvent"
+    },
     "Requirement": {
       "type": "object",
       "properties": {
@@ -1542,6 +1837,26 @@
       },
       "title": "TransportStop"
     },
+    "TransportUpdate": {
+      "type": "object",
+      "required": [
+        "action"
+      ],
+      "properties": {
+        "action": {
+          "type": "string",
+          "example": "START",
+          "description": "Set the action to be performed. START: start the shipment, STOP: stop the shipment, EXECUTE: Execute the shipment, FINISH: finish the shipment.",
+          "enum": [
+            "EXECUTE",
+            "FINISH",
+            "START",
+            "STOP"
+          ]
+        }
+      },
+      "title": "TransportUpdate"
+    },
     "UpdateAPIShipment": {
       "type": "object",
       "required": [
@@ -1674,6 +1989,33 @@
         }
       },
       "title": "UpdateAPIShipment"
+    },
+    "UpdateOrder": {
+      "type": "object",
+      "properties": {
+        "containerNumber": {
+          "type": "string",
+          "example": "FOTU1234567",
+          "description": "The container number of the transport order. The format is in ISO 6346."
+        },
+        "paymentReference": {
+          "type": "string",
+          "example": "PY125647",
+          "description": "Your custom reference number which will be visible on payment lines for this shipment."
+        },
+        "seal": {
+          "type": "string",
+          "example": "CN0622165",
+          "description": "The seal number of the shipment."
+        },
+        "tare": {
+          "type": "integer",
+          "format": "int32",
+          "example": 3810,
+          "description": "Tare value in kg\u0027s."
+        }
+      },
+      "title": "UpdateOrder"
     }
   }
 }
