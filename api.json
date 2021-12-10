@@ -131,7 +131,7 @@
             "description": "document",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/GenericDocumentUpload"
+              "$ref": "#/definitions/GenericDocumentUploadCarrier"
             }
           },
           {
@@ -1561,6 +1561,44 @@
       },
       "title": "GenericDocumentUpload"
     },
+    "GenericDocumentUploadCarrier": {
+      "type": "object",
+      "required": [
+        "fileInBase64format",
+        "fileName",
+        "fileType"
+      ],
+      "properties": {
+        "fileDescription": {
+          "type": "string",
+          "example": "Proof of delivery",
+          "description": "Description of file. Max 30 characters."
+        },
+        "fileInBase64format": {
+          "type": "string",
+          "description": "File in Base64 encoded format. Max uploadable size 5MB."
+        },
+        "fileName": {
+          "type": "string",
+          "example": "test_file.pdf",
+          "description": "Full name of the document with extension. Allowed extensions: pdf, doc, docx, jpeg, jpg, png, tif, tiff, bmp, xls, xlsx, csv"
+        },
+        "fileType": {
+          "type": "string",
+          "example": "POD",
+          "description": "Code of the file type.",
+          "enum": [
+            "CUSTOMER_DOCUMENTS",
+            "INTERCHANGE",
+            "ISSUE_REPORT",
+            "POD",
+            "PROOF_COST",
+            "SHIPMENT_GENERAL"
+          ]
+        }
+      },
+      "title": "GenericDocumentUploadCarrier"
+    },
     "InvoiceLineStatusDTO": {
       "type": "object",
       "properties": {
@@ -1579,6 +1617,7 @@
       "type": "object",
       "required": [
         "sequenceNumber",
+        "time",
         "type"
       ],
       "properties": {
@@ -1591,12 +1630,12 @@
         "time": {
           "type": "string",
           "example": "2021-08-11T13:34:58.80",
-          "description": "The format is in ISO 8601"
+          "description": "The format is in ISO 8601."
         },
         "type": {
           "type": "string",
           "example": "ARRIVAL",
-          "description": "Type of the event",
+          "description": "Type of the event. Values are case sensitive.",
           "enum": [
             "ARRIVAL",
             "DEPARTURE",
@@ -1846,12 +1885,12 @@
         "action": {
           "type": "string",
           "example": "START",
-          "description": "Set the action to be performed. START: start the shipment, STOP: stop the shipment, EXECUTE: Execute the shipment, FINISH: finish the shipment.",
+          "description": "Set the action to be performed. START: start the shipment; STOP: stop the shipment; EXECUTE: Execute the shipment, for example when the shipment is executed, but no proof of delivery is available yet; FINISH: finish the shipment when a proof of delivery is uploaded. Values are case sensitive.",
           "enum": [
-            "EXECUTE",
-            "FINISH",
             "START",
-            "STOP"
+            "STOP",
+            "EXECUTE",
+            "FINISH"
           ]
         }
       },
@@ -2012,7 +2051,7 @@
           "type": "integer",
           "format": "int32",
           "example": 3810,
-          "description": "Tare value in kg\u0027s."
+          "description": "Tare value of the container in kg\u0027s."
         }
       },
       "title": "UpdateOrder"
