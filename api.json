@@ -54,6 +54,10 @@
             <ul class = 'uturn-ul-style'>
                 <li>Added carrier endpoints.</li>
             </ul>
+            <li><strong class = 'uturn-strong'>V1.1.1</strong> :- </li>
+            <ul class = 'uturn-ul-style'>
+                <li>Added carrier comment to cost lines.</li>
+            </ul>
         </ol>
       </div>
       <br/>
@@ -1183,6 +1187,11 @@
           "format": "date",
           "example": "2020-10-16",
           "description": "Date that the cost line was approved in the platform."
+        },
+	"carrierComment": {
+          "type": "string",
+          "example": "any comment",
+          "description": "The carrier comment of the cost line."
         },
         "description": {
           "type": "string",
