@@ -1190,7 +1190,7 @@
         },
 	"carrierComment": {
           "type": "string",
-          "example": "any comment",
+          "example": "I waited from 9:00 until 13:00 at unloading",
           "description": "The carrier comment of the cost line."
         },
         "description": {
