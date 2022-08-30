@@ -1810,58 +1810,15 @@
         "stopType"
       ],
       "properties": {
-        "actualArrival": {
-          "type": "string",
-          "format": "date-time",
-          "example": "2021-11-11T13:34",
-          "description": "Actual arrival of carrier for this location.The format is ISO-8601 local date"
-        },
-        "actualDeparture": {
-          "type": "string",
-          "format": "date-time",
-          "example": "2021-11-12T13:34",
-          "description": "Actual departure of carrier for this location.The format is ISO-8601 local date"
-        },
-        "eta": {
-          "type": "string",
-          "format": "date-time",
-          "example": "2021-11-12T13:34",
-          "description": "ETA for this location.The format is ISO-8601 local date"
-        },
-        "from": {
-          "type": "string",
-          "format": "date-time",
-          "example": "2021-11-11T13:34",
-          "description": "Start of window for this location.When updating and status is Carrier Assigned, the carrier first needs to approve the update request."
-        },
         "location": {
           "description": "The location of the stop.Address details (street, houseNumber, city etc.) are only needed when the location is unknown, Google Maps API will be used to determine the exact location.When updating and status is Carrier Assigned, the carrier first needs to approve the update request.",
           "$ref": "#/definitions/TransportLocation"
-        },
-        "port": {
-          "type": "string",
-          "example": "HOBART",
-          "description": "Port name"
-        },
-        "reference": {
-          "type": "string",
-          "example": "ABC12584",
-          "description": "Reference needed to interact with the location"
-        },
-        "remarks": {
-          "type": "string",
-          "example": "Report at the blue gate",
-          "description": "Additional instructions for the carrier for this location"
         },
         "sequenceNumber": {
           "type": "integer",
           "format": "int32",
           "example": 1,
           "description": "The execution order of this stop in the transport"
-        },
-        "shippingLine": {
-          "description": "The shipping line for this stop to make pre-announcements, if it\u0027s different than the one specified in shipment",
-          "$ref": "#/definitions/ShippingLine"
         },
         "stopType": {
           "type": "string",
@@ -1875,11 +1832,32 @@
             "Stop"
           ]
         },
+        "from": {
+          "type": "string",
+          "format": "date-time",
+          "example": "2021-11-11T13:34",
+          "description": "Start of window for this location.When updating and status is Carrier Assigned, the carrier first needs to approve the update request."
+        },
         "until": {
           "type": "string",
           "format": "date-time",
           "example": "2021-11-12T13:34",
           "description": "End of window for this location.When updating and status is Carrier Assigned, the carrier first needs to approve the update request."
+        },
+        "reference": {
+          "type": "string",
+          "example": "ABC12584",
+          "description": "Reference needed to interact with the location"
+        },
+        "remarks": {
+          "type": "string",
+          "example": "Report at the blue gate",
+          "description": "Additional instructions for the carrier for this location"
+        },
+        "port": {
+          "type": "string",
+          "example": "HOBART",
+          "description": "Port name"
         },
         "vesselName": {
           "type": "string",
