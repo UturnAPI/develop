@@ -1188,15 +1188,15 @@
           "example": "2020-10-16",
           "description": "Date that the cost line was approved in the platform."
         },
-	"carrierComment": {
-          "type": "string",
-          "example": "I waited from 9:00 until 13:00 at unloading",
-          "description": "The carrier comment of the cost line."
-        },
         "description": {
           "type": "string",
           "example": "70013199 - Transport",
           "description": "Description of the cost line. Normally the shipment ID in combination with the cost type."
+        },
+	"carrierComment": {
+          "type": "string",
+          "example": "I waited from 9:00 until 13:00 at unloading",
+          "description": "The carrier comment of the cost line."
         },
         "invoiceNumber": {
           "type": "integer",
