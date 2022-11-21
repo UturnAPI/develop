@@ -66,6 +66,13 @@
             <ul class = 'uturn-ul-style'>
                 <li>Ordered properties.</li>
             </ul>
+	    <li><strong class = 'uturn-strong'>V2.0.0</strong> :- </li>
+            <ul class = 'uturn-ul-style'>
+                <li>Added new <strong class = 'uturn-strong'><a href = '#operation/fetchShipmentDetailsUsingGET'>Shipment details</a></strong> for fetching latest data of shipment for shippers.</li>
+                <li>Bug fix applied to <strong class = 'uturn-strong'><a href = '#operation/fetchShipmentDetailsUsingGET'>update shipment</a></strong> call. Now shippers need to fetch the <strong class = 'uturn-strong'><a href = '#operation/fetchShipmentDetailsUsingGET'>Shipment details</a></strong> first and then update details accordingly.
+                    <strong>This is a breaking change.</strong> 
+                </li>
+            </ul>
         </ol>
       </div>
       <br/>
