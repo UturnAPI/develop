@@ -827,7 +827,7 @@
         "tags": [
           "Shippers"
         ],
-        "summary": "Fetch shipment details",
+        "summary": "Get shipment details",
         "description": "Allowed Roles : Admin,User",
         "operationId": "fetchShipmentDetailsUsingGET",
         "produces": [
