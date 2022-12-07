@@ -613,7 +613,7 @@
         "tags": [
           "Shippers"
         ],
-        "summary": "Get execution details of a shipment.(Deprecated. Use Fetch shipment details call instead)",
+        "summary": "Get execution details of a shipment.",
         "description": "Allowed Roles : Admin,User",
         "operationId": "getExecutionDetailsUsingGET",
         "produces": [
@@ -656,7 +656,8 @@
           "404": {
             "description": "User not found."
           }
-        }
+        },
+        "deprecated": true
       }
     },
     "/portal/shippers/invoiceLines/{shipmentNr}": {
